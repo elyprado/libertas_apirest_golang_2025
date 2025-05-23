@@ -16,3 +16,14 @@ func SetupRouter() *mux.Router {
 
 	return router
 }
+
+func SetupRouterMatheus() *mux.Router {
+	router := mux.NewRouter()
+	SetupRouterVendedor(router)
+
+	router.PathPrefix("/").Handler(
+		http.StripPrefix("/", http.FileServer(
+			http.Dir("./static/"))))
+
+	return router
+}

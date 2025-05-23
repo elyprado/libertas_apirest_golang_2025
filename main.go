@@ -10,3 +10,4 @@ func main() {
 	log.Println("Iniciando servidor em 8080")
 	log.Fatal(http.ListenAndServe(":8080", router))
 }
+
