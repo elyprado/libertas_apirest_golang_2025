@@ -83,7 +83,7 @@ func CreateVendedor(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, erro.Error(), http.StatusInternalServerError)
 	}
 
-	query := "INSERT INTO vendedores_matheus (nome,email,cpf,telefone, estado) VALUES (?, ?, ?, ?, ?)"
+	query := "INSERT INTO vendedores_matheus (nome,email,cpf,telefone,estado) VALUES (?, ?, ?, ?, ?)"
 
 	_, erro = db.Exec(query, vendedor.Nome, vendedor.Email,
 		vendedor.Cpf, vendedor.Telefone, vendedor.Estado)
