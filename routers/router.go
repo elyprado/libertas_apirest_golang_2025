@@ -9,6 +9,7 @@ import (
 func SetupRouter() *mux.Router {
 	router := mux.NewRouter()
 	SetupRouterUsuario(router)
+	SetupRouterMarca(router)
 
 	router.PathPrefix("/").Handler(
 		http.StripPrefix("/", http.FileServer(
@@ -27,3 +28,5 @@ func SetupRouterMatheus() *mux.Router {
 
 	return router
 }
+
+
