@@ -50,7 +50,7 @@ func GetMedicamentoById(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	id := params["id"]
 
-	row, erro := db.Query("SELECT idmedicamento, nome, email, tipo, fabricante FROM medicamento WHERE idmedicamento = ?", id)
+	row, erro := db.Query("SELECT idmedicamento, nome, quantidade, tipo, fabricante FROM medicamento WHERE idmedicamento = ?", id)
 	if erro != nil {
 		http.Error(w, erro.Error(), http.StatusInternalServerError)
 		return
@@ -83,7 +83,7 @@ func CreateMedicamento(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, erro.Error(), http.StatusInternalServerError)
 	}
 
-	query := "INSERT INTO medicamento (nome,email,tipo,fabricante) VALUES (?, ?, ?, ?)"
+	query := "INSERT INTO medicamento (nome,quantidade,tipo,fabricante) VALUES (?, ?, ?, ?)"
 
 	_, erro = db.Exec(query, medicamento.Nome, medicamento.Quantidade,
 		medicamento.Tipo, medicamento.Fabricante)
@@ -93,7 +93,7 @@ func CreateMedicamento(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(
-		map[string]string{"message": "sucesso"})
+		map[string]string{"message": "Medicamento cadastrado com sucesso!", "success": "true"})
 }
 
 func UpdateMedicamento(w http.ResponseWriter, r *http.Request) {
@@ -111,7 +111,7 @@ func UpdateMedicamento(w http.ResponseWriter, r *http.Request) {
 	params := mux.Vars(r)
 	id := params["id"]
 
-	query := "UPDATE medicamento SET nome=?,email=?,tipo=?,fabricante=? WHERE idmedicamento=?"
+	query := "UPDATE medicamento SET nome=?,quantidade=?,tipo=?,fabricante=? WHERE idmedicamento=?"
 
 	_, erro = db.Exec(query, medicamento.Nome, medicamento.Quantidade,
 		medicamento.Tipo, medicamento.Fabricante, id)
@@ -121,7 +121,7 @@ func UpdateMedicamento(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(
-		map[string]string{"message": "sucesso"})
+		map[string]string{"message": "Medicamento atualizado com sucesso!", "success": "true"})
 }
 
 func DeleteMedicamento(w http.ResponseWriter, r *http.Request) {
@@ -143,5 +143,5 @@ func DeleteMedicamento(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(
-		map[string]string{"message": "sucesso"})
+		map[string]string{"message": "Medicamento excluído com sucesso!", "success": "true"})
 }
