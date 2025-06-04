@@ -10,6 +10,7 @@ func SetupRouter() *mux.Router {
 	router := mux.NewRouter()
 	SetupRouterUsuario(router)
 	SetupRouterMarca(router)
+	SetupRouterTime(router)
 
 	router.PathPrefix("/").Handler(
 		http.StripPrefix("/", http.FileServer(
