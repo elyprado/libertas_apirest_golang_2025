@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Times</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+        <style>
+            .header-small {
+                color: rgb(0, 0, 0);
+                padding: 10px 0;
+                text-align: center;
+                text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+            }
+            .header-small h1 {
+                margin: 0;
+                font-size: 2rem;
+                font-weight: 500;
+            }
+
+            #loadingSpinner {
+                z-index: 2050;
+            }
+        </style>
+    </head>
+    <body>
+        <header class="header-small">
+	        <h1>Cadastro de Times de Futebol</h1>
+	    </header>
+
+        <div class="input-group mb-3">
+            <button type="button" class="btn btn-primary" onclick="novo()">Novo</button> 
+            <input type="text" class="form-control" placeholder="Pesquisa" aria-label="Pesquisa"           aria-describedby="button-addon2" id="pesquisa">
+            <button class="btn btn-outline-secondary" type="button" 
+                id="button-addon2" onclick="listar(true)">Pesquisa</button>
+        </div>
+
+        <table class="table table-striped table-hover">
+            <thead>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Cidade</th>
+                <th>Estado</th>
+                <th>Fundação</th>
+                <th>Estádio</th>
+                <th></th>
+            </thead>
+            <tbody id="lista"></tbody>
+            </tbody>
+        </table>
+
+        <div class="modal" tabindex="-1" id="modalcadastro">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cadastro de Time</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="formcadastro">
+                            <input type="hidden" id="idtime">
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome" name="nome">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cidade" class="form-label">Cidade</label>
+                                <input type="text" class="form-control" id="cidade" name="cidade">
+                            </div>
+                            <div class="mb-3">
+                                <label for="estado" class="form-label">Estado</label>
+                                <input type="text" class="form-control" id="estado" name="estado">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fundacao" class="form-label">Fundação</label>
+                                <input type="text" class="form-control" id="fundacao" name="fundacao">
+                            </div>
+                            <div class="mb-3">
+                                <label for="estadio" class="form-label">Estádio</label>
+                                <input type="text" class="form-control" id="estadio" name="estadio">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" onclick="salvar()">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loadingSpinner" class="d-none position-fixed top-50 start-50 translate-middle">
+            <div class="spinner-border text-primary" role="status">
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="time.js"></script>
+
+    </body>
+</html>
