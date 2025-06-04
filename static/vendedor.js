@@ -38,7 +38,7 @@ function salvar() {
     let vestado = document.getElementById("estado").value;
 
     let vendedor = {
-        nome: vnome, email: vemail, cpf:vcpf, telefone: vtelefone, estado: vestado, senha: ''
+        nome: vnome, email: vemail, cpf:vcpf, telefone: vtelefone, estado: vestado
     }
 
     let url;
