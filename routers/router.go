@@ -12,6 +12,7 @@ func SetupRouter() *mux.Router {
 	SetupRouterMarca(router)
 	SetupRouterTime(router)
 	SetupRouterVendedor(router)
+	SetupRouterMedicamento(router)
 
 	router.PathPrefix("/").Handler(
 		http.StripPrefix("/", http.FileServer(
