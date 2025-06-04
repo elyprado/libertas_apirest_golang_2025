@@ -8,7 +8,7 @@ function alterar(idvendedor) {
     //implemente o método fetch, buscando os dados com idvendedor
     //preencha o resultados nos 3 inputs e abra o modal para edição
     idvendedoratual = idvendedor;
-    fetch("http://127.0.0.1:7070/vendedores/"+idvendedor)
+    fetch("http://127.0.0.1:8080/vendedores/"+idvendedor)
          .then(resp => resp.json())
          .then(dados => {
             document.getElementById("nome").value = dados.nome;
@@ -20,7 +20,7 @@ function alterar(idvendedor) {
          });
 }
 function excluir(idvendedor) {
-    fetch("http://127.0.0.1:7070/vendedores/"+idvendedor,
+    fetch("http://127.0.0.1:8080/vendedores/"+idvendedor,
         {
             method: "DELETE"
         }
@@ -45,11 +45,11 @@ function salvar() {
     let metodo;
     if (idvendedoratual>0) {
         //alterar
-        url = "http://127.0.0.1:7070/vendedores/"+idvendedoratual;
+        url = "http://127.0.0.1:8080/vendedores/"+idvendedoratual;
         metodo = "PUT";
     } else {
         //inserir
-        url = "http://127.0.0.1:7070/vendedores";
+        url = "http://127.0.0.1:8080/vendedores";
         metodo = "POST";
     }
 
@@ -84,7 +84,7 @@ function listar() {
     const lista = document.getElementById("lista");
     lista.innerHTML = "<tr><td colspan='5'>Carregando...</td></tr>";
 
-    fetch("http://127.0.0.1:7070/vendedores")
+    fetch("http://127.0.0.1:8080/vendedores")
          .then(resp => resp.json())
          .then(dados => mostrar(dados));
 }
