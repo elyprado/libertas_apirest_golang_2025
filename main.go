@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"apigolang/routers"
 )
+
 func main() {
 	router := routers.SetupRouter()
 	log.Println("Iniciando servidor em 8080")
