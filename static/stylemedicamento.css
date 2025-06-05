@@ -1,0 +1,346 @@
+:root {
+	--primaria-50: #e5e9f7;
+	--primaria-100: #c1c8ef;
+	--primaria-200: #9ba4e7;
+	--primaria-300: #757fdf;
+	--primaria-400: #5a64d9;
+	--primaria-500: #4853c5;
+	--primaria-600: #3e48af;
+	--primaria-700: #1D2E79;
+	--primaria-800: #172662;
+	--primaria-900: #101b45;
+	--primaria-950: #0a112c;
+
+
+	--cinza: #E9EAEB;
+	--fonte: #717680;
+	--shadow: 0 1px 2px 0 rgb(0 0 0/ 0.05);
+	--error: #7F1D1D;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Montserrat", sans-serif !important;
+}
+
+.colored {
+	background-color: var(--primaria-700) !important;
+}
+
+#imgLoading {
+	font-size: 2.5rem;
+	color: var(--primaria-700);
+}
+
+/* ######### TOAST ######### */
+.toast {
+	z-index: 99999;
+}
+
+/* ######### LOADING ######### */
+.dropdrow {
+	position: fixed;
+	inset: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+	display: none;
+	justify-content: center;
+	align-items: center;
+	z-index: 9999;
+}
+
+.dropdrow i {
+	width: 40px;
+	animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+
+}
+
+/* ######### CONTEUDO PAGINA ######### */
+.pagina {
+	padding: 24px;
+}
+
+/* HEADER */
+header {
+	background-color: white;
+	height: 70px;
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	border-bottom: 1px solid var(--cinza);
+}
+
+.logo {
+	display: flex;
+}
+
+.btnMenu {
+	background-color: var(--primaria-700) !important;
+	color: white !important;
+	font-size: 12px !important;
+	font-weight: 600 !important;
+	display: flex !important;
+	align-items: center !important;
+	gap: 10px !important;
+}
+
+.btnMenu:hover {
+	background-color: var(--primaria-800) !important;
+	transition: all ease 0.2s !important;
+}
+
+.btnMenu i {
+	font-size: 20px;
+	color: white;
+}
+
+/* CABECALHO TABELA */
+.cabecalho {
+	color: var(--fonte);
+	margin-bottom: 16px;
+}
+
+.cabecalho h1 {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 0px;
+}
+
+.cabecalho span {
+	font-size: 13px;
+}
+
+.divPesquisa {
+	position: relative;
+	width: 300px !important;
+}
+
+#pesquisa {
+	font-size: 14px !important;
+}
+
+#inputPesquisar {
+	font-size: 14px !important;
+	color: var(--fonte) !important;
+}
+
+#inputPesquisar::placeholder {
+	font-size: 14px !important;
+	color: #A4A7AE !important;
+}
+
+#imgPesquisa {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 20px;
+	color: var(--fonte);
+	cursor: pointer;
+}
+
+/* SEM INFO */
+.seminfo {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	height: calc(100vh - 300px);
+}
+
+.seminfo i {
+	margin: 0px auto;
+	font-size: 80px;
+}
+
+.seminfo .mensagem {
+	margin-top: 15px;
+	color: var(--fonte);
+	font-weight: bold;
+	font-size: 12px;
+}
+
+/* TABELA */
+.cardTabela {
+	overflow: hidden;
+	border-radius: 8px;
+	box-shadow: 0 2px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.cardTabela i {
+	font-size: 20px;
+	color: var(--primaria-700);
+}
+
+.table {
+	margin-bottom: 0px !important;
+	color: var(--fonte) !important;
+}
+
+.table thead,
+.table tbody {
+	vertical-align: middle !important;
+}
+
+.table thead tr {
+	height: 44px !important;
+}
+
+.table th,
+.table td {
+	color: var(--fonte) !important;
+}
+
+.table th {
+	font-size: 12px !important;
+}
+
+.table td {
+	font-size: 14px !important;
+}
+
+.colunaCentro {
+	text-align: center !important;
+}
+
+.colunaIcone {
+	width: 40px !important;
+}
+
+img {
+	width: 15px;
+}
+
+#btnDelete {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 6px;
+	border-radius: 8px;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+
+#btnEdit {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 6px;
+	border-radius: 8px;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+
+/* ######### MODAL CADASTRO E MODAL EXCLUIR ######### */
+.form-control {
+	border: 1px solid var(--cinza) !important;
+}
+
+.form-control:focus {
+	outline: 0 !important;
+	box-shadow: none !important;
+	border-color: var(--primaria-700) !important;
+}
+
+.form-group {
+	margin-bottom: 8px !important;
+}
+
+.form-group:last-child {
+	margin-bottom: 0px !important;
+}
+
+.modal {
+	color: var(--fonte);
+}
+
+.modal label,
+.modal input {
+	font-size: 14px !important;
+}
+
+.modal input {
+	box-shadow: var(--shadow);
+}
+
+.inputError {
+	border: 1px solid red !important;
+}
+
+#tituloModal,
+#tituloExcluir {
+	font-size: 16px !important;
+}
+
+#salvarCadastro {
+	background-color: var(--primaria-700) !important;
+	color: white !important;
+	font-size: 14px !important;
+	font-weight: 600 !important;
+}
+
+#salvarCadastro:hover {
+	background-color: var(--primaria-800) !important;
+	transition: all ease 0.2s !important;
+}
+
+#cancelarCadastro {
+	border: 1px solid var(--primaria-700) !important;
+	color: var(--primaria-700) !important;
+	font-size: 14px !important;
+	font-weight: 600 !important;
+}
+
+#cancelarCadastro:hover {
+	border: 1px solid var(--primaria-800) !important;
+	color: var(--primaria-800) !important;
+}
+
+#simExcluir {
+	background-color: var(--primaria-700) !important;
+	color: white !important;
+	font-size: 14px !important;
+	font-weight: 600 !important;
+	width: 100px !important;
+}
+
+#simExcluir:hover {
+	background-color: var(--primaria-800) !important;
+	transition: all ease 0.2s !important;
+}
+
+#naoExcluir {
+	border: 1px solid var(--primaria-700) !important;
+	color: var(--primaria-700) !important;
+	font-size: 14px !important;
+	font-weight: 600 !important;
+	width: 100px !important;
+}
+
+#naoExcluir:hover {
+	border: 1px solid var(--primaria-800) !important;
+	color: var(--primaria-800) !important;
+}
+
+#bodyExcluir {
+	font-size: 14px !important;
+}
