@@ -69,7 +69,7 @@ function getCadastros(nome) {
     abrirLoading()
     var parametro = (nome == undefined ? "" : "?nome=" + nome)
 
-    fetch('http://localhost:8080/medicamentos' + parametro,
+    fetch('http://127.0.0.1:8080/medicamentos' + parametro,
         {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
@@ -84,7 +84,7 @@ function getCadastros(nome) {
 
 function getCadastro(id) {
     abrirLoading()
-    fetch("http://localhost:8080/medicamentos/" + id,
+    fetch("http://127.0.0.1:8080/medicamentos/" + id,
         {
             method: "GET",
             headers: { 'Content-Type': 'application/json' },
@@ -99,7 +99,7 @@ function getCadastro(id) {
 
 function deleteCadastro(id) {
     abrirLoading()
-    fetch("http://localhost:8080/medicamentos/" + id,
+    fetch("http://127.0.0.1:8080/medicamentos/" + id,
         {
             method: "DELETE",
             headers: { 'Content-Type': 'application/json' },
@@ -115,10 +115,10 @@ function deleteCadastro(id) {
 function postPutCadastro(obj, id) {
     abrirLoading()
     let body = JSON.stringify(obj);
-    let endereco = "http://localhost:8080/medicamentos";
+    let endereco = "http://127.0.0.1:8080/medicamentos";
     let metodo = "POST";
     if (id) {
-        endereco = "http://localhost:8080/medicamentos/" + id;
+        endereco = "http://127.0.0.1:8080/medicamentos/" + id;
         metodo = "PUT";
     }
     fetch(endereco,
