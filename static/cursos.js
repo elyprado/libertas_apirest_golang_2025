@@ -6,7 +6,7 @@ var idcursoatual;
 
 function alterar(idcurso) {
   idcursoatual = idcurso;
-  fetch("http://localhost:8080/cursos/" + idcurso, {
+  fetch("http://127.0.0.1:8080/cursos/" + idcurso, {
     method: "GET",
     mode: "cors",
   })
@@ -22,7 +22,7 @@ function alterar(idcurso) {
 }
 
 function excluir(idcurso) {
-  fetch("http://localhost:8080/cursos/" + idcurso, {
+  fetch("http://127.0.0.1:8080/cursos/" + idcurso, {
     method: "DELETE",
     mode: "cors",
   })
@@ -47,10 +47,10 @@ function salvar() {
 
   let url, metodo;
   if (idcursoatual > 0) {
-    url = "http://localhost:8080/cursos/" + idcursoatual;
+    url = "http://127.0.0.1:8080/cursos/" + idcursoatual;
     metodo = "PUT";
   } else {
-    url = "http://localhost:8080/cursos";
+    url = "http://127.0.0.1:8080/cursos";
     metodo = "POST";
   }
 
@@ -82,7 +82,7 @@ function listar() {
   const lista = document.getElementById("lista");
   lista.innerHTML = "<tr><td colspan='5'>Carregando...</td></tr>";
 
-  fetch("http://localhost:8080/cursos", {
+  fetch("http://127.0.0.1:8080/cursos", {
     method: "GET",
     mode: "cors",
   })
