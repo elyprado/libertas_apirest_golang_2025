@@ -16,7 +16,7 @@ func SetupRouter() *mux.Router {
 	SetupRouterMedicamento(router)
 	SetupRouterListaCompras(router)
 	SetupRouterCurso(router) // ✅ Aqui você adiciona o novo módulo
-
+	SetupRouterProdutos(router)
 	router.PathPrefix("/").Handler(
 		http.StripPrefix("/", http.FileServer(
 			http.Dir("./static/"))))
