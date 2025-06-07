@@ -15,7 +15,8 @@ func SetupRouter() *mux.Router {
 	SetupRouterVendedor(router)
 	SetupRouterMedicamento(router)
 	SetupRouterListaCompras(router)
-	SetupRouterCurso(router) // ✅ Aqui você adiciona o novo módulo
+	SetupRouterImovel(router)
+	SetupRouterCurso(router) 
 	SetupRouterProdutos(router)
 	SetupRouterVeiculo(router)
 	SetupRouterFilmes(router) 
