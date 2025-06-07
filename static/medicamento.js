@@ -43,9 +43,10 @@ function fecharLoading() {
 }
 
 function toast(mensagem, success) {
-    document.querySelector('.toast-body').innerHTML = mensagem
-    document.querySelector('.toast').style.backgroundColor = (success ? 'var(--primaria-700)' : 'var(--error)');
-    modalToast.show()
+    //document.querySelector('.toast-body').innerHTML = mensagem
+    //document.querySelector('.toast').style.backgroundColor = (success ? 'var(--primaria-700)' : 'var(--error)');
+    window.alert(mensagem);
+    //modalToast.show()
 }
 
 function validarInputs(...inputs) {
@@ -213,7 +214,7 @@ function salvar(id) {
 // ################### TABELA ###################
 
 function listarCadastros(dados) {
-    if (dados.length == 0) {
+    if (dados == null) {
         document.querySelector('.seminfo').style.display = "flex"
         document.querySelector('.cardTabela').style.display = "none"
     } else {

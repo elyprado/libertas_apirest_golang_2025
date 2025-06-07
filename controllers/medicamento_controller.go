@@ -3,6 +3,7 @@ package controllers
 import (
 	"apigolang/config"
 	"apigolang/models"
+	"database/sql"
 	"encoding/json"
 	"net/http"
 
@@ -17,17 +18,30 @@ func GetMedicamentos(w http.ResponseWriter, r *http.Request) {
 	}
 	defer db.Close() //executa no fim do método
 
-	row, erro := db.Query("SELECT idmedicamento, nome, quantidade, tipo, fabricante FROM medicamento")
+	nome := r.URL.Query().Get("nome")
+
+	query := "SELECT idmedicamento, nome, quantidade, tipo, fabricante FROM medicamento"
+
+	var rows *sql.Rows
+
+	if nome != "" {
+		query += " WHERE nome LIKE ?"
+		nome = "%" + nome + "%"
+		rows, erro = db.Query(query, nome)
+	} else {
+		rows, erro = db.Query(query)
+	}
+
 	if erro != nil {
 		http.Error(w, erro.Error(), http.StatusInternalServerError)
 		return
 	}
-	defer row.Close()
+	defer rows.Close()
 
 	var medicamentos []models.Medicamento
-	for row.Next() {
+	for rows.Next() {
 		var medicamento models.Medicamento
-		erro := row.Scan(&medicamento.Idmedicamento, &medicamento.Nome,
+		erro := rows.Scan(&medicamento.Idmedicamento, &medicamento.Nome,
 			&medicamento.Quantidade, &medicamento.Tipo, &medicamento.Fabricante)
 		if erro != nil {
 			http.Error(w, erro.Error(), http.StatusInternalServerError)
