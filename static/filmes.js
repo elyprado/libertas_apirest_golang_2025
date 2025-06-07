@@ -36,7 +36,7 @@ function salvar() {
     let vclassificacao = document.getElementById("classificacao").value;
     let vgenero = document.getElementById("genero").value;
     let vautor = document.getElementById("autor").value;
-    let vano = document.getElementById("ano").value;
+    let vano = parseInt(document.getElementById("ano").value) || null;
 
     let filme = {
         nome: vnome, classificacao: vclassificacao, genero: vgenero, autor: vautor, ano: vano
