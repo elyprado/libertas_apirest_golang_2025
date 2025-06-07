@@ -18,6 +18,7 @@ func SetupRouter() *mux.Router {
 	SetupRouterCurso(router) // ✅ Aqui você adiciona o novo módulo
 	SetupRouterProdutos(router)
 	SetupRouterVeiculo(router)
+	SetupRouterFilmes(router) 
 	router.PathPrefix("/").Handler(
 		http.StripPrefix("/", http.FileServer(
 			http.Dir("./static/"))))
