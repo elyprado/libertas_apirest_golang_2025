@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gestão de Músicas</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(120deg, #f3e5f5, #ffffff);
+    }
+    h1 {
+      font-weight: 700;
+      color: #6a1b9a;
+    }
+    .card {
+      border-radius: 1rem;
+      box-shadow: 0 6px 18px rgba(106, 27, 154, 0.15);
+    }
+    .table {
+      border-radius: 0.5rem;
+      overflow: hidden;
+    }
+    .table-dark th {
+      background-color: #4a148c !important;
+    }
+    .modal-content {
+      border-radius: 1rem;
+    }
+    .btn-primary {
+      background-color: #6a1b9a;
+      border-color: #4a148c;
+    }
+    .btn-primary:hover {
+      background-color: #4a148c;
+      border-color: #2a0a5b;
+    }
+    .btn-success {
+      background-color: #ab47bc;
+      border-color: #9c27b0;
+    }
+    .btn-success:hover {
+      background-color: #8e24aa;
+      border-color: #6a1b9a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="card p-4">
+      <div class="d-flex justify-content-between align-items-center mb-3">
+        <h1 class="mb-0">Gestão de Músicas</h1>
+        <button type="button" class="btn btn-success btn-lg" onclick="novo()">Nova Música</button>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle text-center">
+          <thead class="table-dark text-white">
+            <tr>
+              <th>ID</th>
+              <th>Título</th>
+              <th>Artista</th>
+              <th>Álbum</th>
+              <th>Ano</th>
+              <th>Gênero</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="lista"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="modalcadastro" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content shadow">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title">Cadastro de Música</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="form-item" class="row g-3">
+            <input type="hidden" id="id" />
+            <div class="col-md-6">
+              <label class="form-label">Título</label>
+              <input type="text" class="form-control" id="titulo" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Artista</label>
+              <input type="text" class="form-control" id="artista" required>
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Álbum</label>
+              <input type="text" class="form-control" id="album" required>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Ano</label>
+              <input type="number" class="form-control" id="ano" min="1900" max="2100" required>
+            </div>
+            <div class="col-md-3">
+              <label class="form-label">Gênero</label>
+              <input type="text" class="form-control" id="genero" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="salvar()">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="musica.js"></script>
+  <script>listar()</script>
+</body>
+</html>
